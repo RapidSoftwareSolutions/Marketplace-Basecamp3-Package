@@ -3,7 +3,7 @@ global.PACKAGE_NAME = 'Basecamp3';
 
 const express       = require('express'),
     bodyParser      = require('body-parser'),
-    RAPI            = require('../package.js'),
+    RAPI            = require('rapi-js-package'),
     fs              = require('fs'),
     lib             = require('./lib'),
     _               = lib.callback;
