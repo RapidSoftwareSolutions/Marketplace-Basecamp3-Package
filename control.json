@@ -1,0 +1,946 @@
+{
+    "getBasecamps": {
+        "url": "https://3.basecampapi.com/:accountId/projects.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|status": "status"
+        }
+    },
+    "getSingleBasecamp": {
+        "url": "https://3.basecampapi.com/:accountId/projects/:id.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|id": "$!id"
+        }
+    },
+    "createBasecamp": {
+        "url": "https://3.basecampapi.com/:accountId/projects.json",
+        "method": "POST",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|name": "$name",
+            "String|description": "description"
+        }
+    },
+    "updateBasecamp": {
+        "url": "https://3.basecampapi.com/:accountId/projects/:id.json",
+        "method": "PUT",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|id": "$!id",
+            "String|name": "name",
+            "String|description": "description"
+        }
+    },
+    "deleteBasecamp": {
+        "url": "https://3.basecampapi.com/:accountId/projects/:id.json",
+        "method": "DELETE",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|id": "$!id"
+        }
+    },
+    "getCampfires": {
+        "url": "https://3.basecampapi.com/:accountId/chats.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken"
+        }
+    },
+    "getSingleCampfire": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/chats/:campfireId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|campfireId": "$!campfireId"
+        }
+    },
+    "getCampfireLines": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/chats/:campfireId/lines.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|campfireId": "$!campfireId"
+        }
+    },
+    "getCampfireLine": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/chats/:campfireId/lines/:lineId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|campfireId": "$!campfireId",
+            "String|lineId": "$!lineId"
+        }
+    },
+    "createCampfireLine": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/chats/:campfireId/lines.json",
+        "method": "POST",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|campfireId": "$!campfireId"
+        }
+    },
+    "getChatbots": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/chats/:campfireId/integrations.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|campfireId": "$!campfireId"
+        }
+    },
+    "getSingleChatbot": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/chats/:campfireId/integrations/:botId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|campfireId": "$!campfireId",
+            "String|botId": "$botId"
+        }
+    },
+    "createChatbot": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/chats/:campfireId/integrations.json",
+        "method": "POST",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|campfireId": "$!campfireId",
+            "String|serviceName": "$service_name",
+            "String|commandUrl": "command_url"
+        }
+    },
+    "updateChatbot": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/buckets/:basecampId/chats/:campfireId/integrations/:botId.json",
+        "method": "PUT",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|campfireId": "$!campfireId",
+            "String|botId": "$!botId",
+            "String|serviceName": "$service_name",
+            "String|commandUrl": "command_url"
+        }
+    },
+    "deleteChatbot": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/chats/:campfireId/integrations/:botId.json",
+        "method": "DELETE",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|campfireId": "$!campfireId",
+            "String|botId": "$!botId"
+        }
+    },
+    "getClientApprovals": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/client/approvals.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId"
+        }
+    },
+    "getSingleClientApproval": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/client/approvals/:approvalId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|approvalId": "$!approvalId"
+        }
+    },
+    "getClientCorrespondences": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/client/correspondences.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId"
+        }
+    },
+    "getSingleClientCorrespondence": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/client/correspondences/:correspondenceId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|correspondenceId": "$!correspondenceId"
+        }
+    },
+    "getClientReplies": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/client/recordings/:recordingId/replies.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|recordingId": "$!recordingId"
+        }
+    },
+    "getSingleClientReply": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/1/client/recordings/2/replies/3.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$basecampId",
+            "String|recordingId": "$recordingId",
+            "String|replyId": "$replyId"
+        }
+    },
+    "getComments": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/recordings/:recordingId/comments.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|recordingId": "$!recordingId"
+        }
+    },
+    "getSingleComment": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/comments/:commentId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|commentId": "$!commentId"
+        }
+    },
+    "createComment": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/recordings/:recordingId/comments.json",
+        "method": "POST",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|recordingId": "$!recordingId",
+            "String|content": "$content"
+        }
+    },
+    "updateComment": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/comments/:commentId.json",
+        "method": "PUT",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|commentId": "$!commentId",
+            "String|content": "$content"
+        }
+    },
+    "getRecordings": {
+        "url": "https://3.basecampapi.com/:accountId/projects/recordings.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|type": "$type",
+            "String|bucket": "bucket",
+            "String|status": "status",
+            "String|sort": "sort",
+            "String|direction": "direction"
+        }
+    },
+    "deleteRecording": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/recordings/:recordingId/status/trashed.json",
+        "method": "PUT",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|recordingId": "$!recordingId"
+        }
+    },
+    "getDocuments": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/vaults/:recordingId/documents.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|vaultId": "$vaultId"
+        }
+    },
+    "getSingleDocument": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/documents/:documentId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|documentId": "$!documentId"
+        }
+    },
+    "createDocument": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/vaults/:vaultId/documents.json",
+        "method": "POST",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|vaultId": "$!vaultId",
+            "String|title": "$title",
+            "String|content": "$content",
+            "String|status": "status"
+        }
+    },
+    "updateSingleDocument": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/documents/:documentId.json",
+        "method": "PUT",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|documentId": "$!documentId",
+            "String|title": "title",
+            "String|content": "content"
+        }
+    },
+    "getEvents": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/recordings/:recordingId/events.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|recordingId": "$!recordingId"
+        }
+    },
+    "getForwards": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/inboxes/:inboxId/forwards.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|inboxId": "$!inboxId"
+        }
+    },
+    "getSingleForward": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/inbox_forwards/:forwardId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|forwardId": "$!forwardId"
+        }
+    },
+    "getInbox": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/inboxes/:inboxId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|inboxId": "$!inboxId"
+        }
+    },
+    "getMessageBoard": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/message_boards/:boardId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|boardId": "$!boardId"
+        }
+    },
+    "getMessages": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/message_boards/:boardId/messages.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|boardId": "$!boardId"
+        }
+    },
+    "getSingleMessage": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/messages/:messageId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|messageId": "$!messageId"
+        }
+    },
+    "createMessage": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/message_boards/:boardId/messages.json",
+        "method": "POST",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|boardId": "$!boardId",
+            "String|subject": "$subject",
+            "String|content": "content"
+        },
+        "values": {
+            "status": "active"
+        }
+    },
+    "updateMessage": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/messages/:messageId.json",
+        "method": "PUT",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|messageId": "$!messageId",
+            "String|subject": "subject",
+            "String|content": "content"
+        }
+    },
+    "getAllPeople": {
+        "url": "https://3.basecampapi.com/:accountId/people.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken"
+        }
+    },
+    "getPeopleOnBasecamp": {
+        "url": "https://3.basecampapi.com/:accountId/projects/:basecampId/people.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId"
+        }
+    },
+    "createBasecampAccess": {
+        "url": "https://3.basecampapi.com/:accountId/projects/:basecampId/people.json",
+        "method": "PUT",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "JSON|people": "$create"
+        }
+    },
+    "grantBasecampAccess": {
+        "url": "https://3.basecampapi.com/:accountId/projects/:basecampId/people.json",
+        "method": "PUT",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "JSON|people": "$grant"
+        }
+    },
+    "revokeBasecampAccess": {
+        "url": "https://3.basecampapi.com/:accountId/projects/:basecampId/people.json",
+        "method": "PUT",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "JSON|people": "$revoke"
+        }
+    },
+    "getPingablePeople": {
+        "url": "https://3.basecampapi.com/:accountId/circles/people.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken"
+        }
+    },
+    "getPerson": {
+        "url": "https://3.basecampapi.com/:accountId/people/personId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|personId": "$personId"
+        }
+    },
+    "getMyInfo": {
+        "url": "https://3.basecampapi.com/:accountId/my/profile.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken"
+        }
+    },
+    "getQuestionAnswers": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/questions/:questionId/answers.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|questionId": "$!questionId"
+        }
+    },
+    "getSingleQuestionAnswer": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/question_answers/:answerId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|answerId": "$!answerId"
+        }
+    },
+    "getQuestionnaire": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/questionnaires/:questionnaireId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|questionnaireId": "$!questionnaireId"
+        }
+    },
+    "getQuestions": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/questionnaires/:questionnaireId/questions.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|questionnaireId": "$!questionnaireId"
+        }
+    },
+    "getSingleQuestion": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/questions/:questionId.json ",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|questionId": "$!questionId"
+        }
+    },
+    "getScheduleEntries": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/schedules/:scheduleId/entries.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|scheduleId": "$!scheduleId",
+            "String|status": "status"
+        }
+    },
+    "getSingleScheduleEntry": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/schedule_entries/:entryId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|entryId": "$!entryId"
+        }
+    },
+    "createScheduleEntry": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/schedules/:scheduleId/entries.json",
+        "method": "POST",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|scheduleId": "$!scheduleId",
+            "String|summary": "$summary",
+            "Number|startsAt": "$starts_at",
+            "Number|endsAt": "$ends_at",
+            "String|description": "description",
+            "String|participantIds": "participant_ids",
+            "String|allDay": "all_day",
+            "String|notify": "notify"
+        }
+    },
+    "updateScheduleEntry": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/schedule_entries/:entryId.json",
+        "method": "PUT",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|entryId": "$!entryId",
+            "String|summary": "summary",
+            "Number|startsAt": "starts_at",
+            "Number|endsAt": "ends_at",
+            "String|description": "description",
+            "String|participantIds": "participant_ids",
+            "String|allDay": "all_day",
+            "String|notify": "notify"
+        }
+    },
+    "getSingleSchedule": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/schedules/:scheduleId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|scheduleId": "$!scheduleId"
+        }
+    },
+    "getTemplates": {
+        "url": "https://3.basecampapi.com/:accountId/templates.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|status": "status"
+        }
+    },
+    "getSingleTemplate": {
+        "url": "https://3.basecampapi.com/:accountId/templates/:templateId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|templateId": "$!templateId"
+        }
+    },
+    "createTemplate": {
+        "url": "https://3.basecampapi.com/:accountId/templates.json",
+        "method": "POST",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|name": "$name",
+            "String|description": "description"
+        }
+    },
+    "updateTemplate": {
+        "url": "https://3.basecampapi.com/:accountId/templates/:templateId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|templateId": "$!templateId",
+            "String|name": "name",
+            "String|description": "description"
+        }
+    },
+    "deleteTemplate": {
+        "url": "https://3.basecampapi.com/:accountId/templates/:templateId.json",
+        "method": "DELETE",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|templateId": "$!templateId"
+        }
+    },
+    "getProjectConstruction": {
+        "url": "https://3.basecampapi.com/:accountId/templates/:templateId/project_constructions/:constructionId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|templateId": "$!templateId",
+            "String|constructionId": "$!constructionId"
+        }
+    },
+    "getToDoLists": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/todosets/:listId/todolists.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|setId": "$setId"
+        }
+    },
+    "getSingleToDoList": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/todolists/:listId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|listId": "$!listId"
+        }
+    },
+    "createToDoList": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/todosets/:setId/todolists.json",
+        "method": "POST",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|setId": "$!setId",
+            "String|name": "$name",
+            "String|description": "description"
+        }
+    },
+    "updateToDoList": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/todolists/:listId.json",
+        "method": "PUT",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|listId": "$!listId",
+            "String|name": "name",
+            "String|description": "description"
+        }
+    },
+    "getToDos": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/todolists/:listId/todos.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|listId": "$!listId",
+            "String|status": "status",
+            "String|completed": "completed"
+        }
+    },
+    "getSingleToDo": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/todos/:todoId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|todoId": "$!todoId"
+        }
+    },
+    "createToDo": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/todolists/:listId/todos.json",
+        "method": "POST",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|listId": "$!listId",
+            "String|content": "$content",
+            "String|description": "description",
+            "String|assigneeIds": "assignee_ids",
+            "String|notify": "notify",
+            "String|dueOn": "due_on",
+            "String|startsOn": "starts_on"
+        }
+    },
+    "updateToDo": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/todos/:todoId.json",
+        "method": "PUT",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|todoId": "$!todoId",
+            "String|content": "$content",
+            "String|description": "description",
+            "String|assigneeIds": "assignee_ids",
+            "String|notify": "notify",
+            "String|dueOn": "due_on",
+            "String|startsOn": "starts_on"
+        }
+    },
+    "completeToDo": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/todos/:todoId/completion.json",
+        "method": "POST",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|todoId": "$!todoId"
+        }
+    },
+    "uncompleteToDo": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/todos/:todoId/completion.json",
+        "method": "DELETE",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|todoId": "$!todoId"
+        }
+    },
+    "repositionToDo": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/todos/:todoId/position.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|todoId": "$!todoId",
+            "Number|position": "$position"
+        }
+    },
+    "getToDoSet": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/todosets/:setId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|setId": "$!setId"
+        }
+    },
+    "getUploads": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/vaults/:vaultId/uploads.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|vaultId": "$!vaultId"
+        }
+    },
+    "getSingleUpload": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/uploads/:uploadId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|uploadId": "$!uploadId"
+        }
+    },
+    "createUpload": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/vaults/:vaultId/uploads.json",
+        "method": "POST",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|vaultId": "$!vaultId",
+            "String|attachableSgid": "$attachable_sgid",
+            "String|description": "description",
+            "String|baseName": "base_name"
+        }
+    },
+    "updateUpload": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/uploads/:uploadId.json",
+        "method": "PUT",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|uploadId": "$!uploadId",
+            "String|description": "description",
+            "String|baseName": "base_name"
+        }
+    },
+    "getVaults": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/vaults/:vaultId/vaults.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|vaultId": "$!vaultId"
+        }
+    },
+    "getSingleVault": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/vaults/:vaultId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|vaultId": "$!vaultId"
+        }
+    },
+    "createVault": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/vaults/:vaultId/vaults.json",
+        "method": "POST",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|vaultId": "$!vaultId",
+            "String|title": "$title"
+        }
+    },
+    "updateVault": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/vaults/:vaultId.json",
+        "method": "PUT",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|vaultId": "$!vaultId",
+            "String|title": "$title"
+        }
+    },
+    "getWebhooks": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/webhooks.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId"
+        }
+    },
+    "getSingleWebhook": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/webhooks/:webhookId.json",
+        "method": "GET",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|webhookId": "$!webhookId"
+        }
+    },
+    "createWebhook": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/webhooks.json",
+        "method": "POST",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|payloadUrl": "$payload_url",
+            "JSON|types": "types"
+        }
+    },
+    "updateWebhook": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/webhooks/:webhookId.json",
+        "method": "PUT",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|webhookId": "$!webhookId",
+            "String|payloadUrl": "payloadUrl",
+            "JSON|types": "types",
+            "Boolean|active": "active"
+        }
+    },
+    "deleteWebhook": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/webhooks/:webhookId.json",
+        "method": "DELETE",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|webhookId": "$!webhookId"
+        }
+    }
+}

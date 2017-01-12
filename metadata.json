@@ -1,0 +1,4027 @@
+{
+  "package": "Basecamp3",
+  "tagline": "Basecamp 3 API Package",
+  "description": "",
+  "image": "https://37signals.com/images/basecamp-logo.png",
+  "keywords": [
+    "API"
+  ],
+  "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-Basecamp3-Package",
+  "accounts": {
+    "domain": "",
+    "credentials": [
+      "clientId",
+      "clientSecret"
+    ]
+  },
+  "blocks": [
+    {
+      "name": "createAttachment",
+      "description": "Create an attachment",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "File name.",
+          "required": "true"
+        },
+        {
+          "name": "file",
+          "type": "File",
+          "info": "File to upload",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getBasecamps",
+      "description": " Returns a list of active Basecamps visible to the current user sorted by most recently created Basecamp first.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "info": "When set to `archived` or `trashed`, will return archived or trashed Basecamps visible to the current user.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getSingleBasecamp",
+      "description": "Returns the Basecamp with the given ID, granted they have access to it.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "info": "Basecamp ID",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "createBasecamp",
+      "description": "Creates a new Basecamp.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "Basecamp name.",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "info": "Basecamp description.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "updateBasecamp",
+      "description": "Will allow updating of a Basecamp's name and description.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "New Basecamp name.",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "info": "New Basecamp description.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "deleteBasecamp",
+      "description": "Will mark the Basecamp with the given ID as trashed.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getCampfires",
+      "description": "Returns a list of all active Campfires visible to the current user.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getSingleCampfire",
+      "description": "Return the Campfire with ID `campfireId` in the Basecamp with ID `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "campfireId",
+          "type": "String",
+          "info": "Campfire ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getCampfireLines",
+      "description": "Returns a list of Campfire lines of the Campfire with ID `campfireId` in the Basecamp with ID `basecampId`",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "campfireId",
+          "type": "String",
+          "info": "Campfire ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getCampfireLine",
+      "description": "Returns the Campfire line with ID `lineId` in the Campfire with ID `campfireId` in the Basecamp with ID `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "campfireId",
+          "type": "String",
+          "info": "Campfire ID.",
+          "required": true
+        },
+        {
+          "name": "lineId",
+          "type": "String",
+          "info": "Campfire Line ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "createCampfireLine",
+      "description": "Creates a line in the Campfire with ID `campfireId` in the Basecamp with ID `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "campfireId",
+          "type": "String",
+          "info": "Campfire ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getChatbots",
+      "description": "Return all the chatbots from the account with the line URL for the campfire with id `campfireId` on the basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "campfireId",
+          "type": "String",
+          "info": "Campfire ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getSingleChatbot",
+      "description": "Returns the chatbot with an ID of `botId` with the line URL from the Basecamp with ID `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "campfireId",
+          "type": "String",
+          "info": "Campfire ID.",
+          "required": true
+        },
+        {
+          "name": "botId",
+          "type": "String",
+          "info": "Bot ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "createChatbot",
+      "description": "Creates a chatbot on the account and returns the new chatbot with the lines URL from the Basecamp with ID `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "campfireId",
+          "type": "String",
+          "info": "Campfire ID.",
+          "required": true
+        },
+        {
+          "name": "serviceName",
+          "type": "String",
+          "info": "Chatbot name, which will be used to invoke queries and commands on interactive bots.",
+          "required": true
+        },
+        {
+          "name": "commandUrl",
+          "type": "String",
+          "info": "HTTPS url that Basecamp should call when the bot is addressed",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "updateChatbot",
+      "description": "Allows changing the service name and commandURL of the chatbot with an ID of `botId` in the Basecamp with ID `botId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "campfireId",
+          "type": "String",
+          "info": "Campfire ID.",
+          "required": true
+        },
+        {
+          "name": "botId",
+          "type": "String",
+          "info": "Bot ID.",
+          "required": true
+        },
+        {
+          "name": "serviceName",
+          "type": "String",
+          "info": "Chatbot name, which will be used to invoke queries and commands on interactive bots.",
+          "required": true
+        },
+        {
+          "name": "commandUrl",
+          "type": "String",
+          "info": "HTTPS url that Basecamp should call when the bot is addressed",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "deleteChatbot",
+      "description": "Deletes the chatbot with an ID of `botId` across the account.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "campfireId",
+          "type": "String",
+          "info": "Campfire ID.",
+          "required": true
+        },
+        {
+          "name": "botId",
+          "type": "String",
+          "info": "Bot ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getClientApprovals",
+      "description": "Returns a list of client approvals in the Basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getSingleClientApproval",
+      "description": "Returns the client approval with an ID of `approvalId` in the Basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "approvalId",
+          "type": "String",
+          "info": "Approval ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getClientCorrespondences",
+      "description": "Returns a list of client correspondences in the Basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getSingleClientCorrespondence",
+      "description": "return the client correspondence with an ID of `correspondenceId` in the Basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "correspondenceId",
+          "type": "String",
+          "info": "Correspondence ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getClientReplies",
+      "description": "return a paginated list of client replies in the Basecamp with an ID of `basecampId` and the recording with ID of `recordingId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "recordingId",
+          "type": "String",
+          "info": "Recording ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getSingleClientReply",
+      "description": "return the client reply with an ID of `replyId` for the recording with an ID of `recordingId` in the Basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "recordingId",
+          "type": "String",
+          "info": "Recording ID.",
+          "required": true
+        },
+        {
+          "name": "replyId",
+          "type": "String",
+          "info": "Reply ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getComments",
+      "description": "Return a list of active comments in the Basecamp with an ID of `basecampId` and the recording with ID of `recordingId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "recordingId",
+          "type": "String",
+          "info": "Recording ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getSingleComment",
+      "description": "Returns the comment with an ID of `commentId` in the Basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "commentId",
+          "type": "String",
+          "info": "Comment ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "createComment",
+      "description": "Publishes a comment in the Basecamp with ID `commentId` and under the recording with an ID of `recordingId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "recordingId",
+          "type": "String",
+          "info": "Recording ID.",
+          "required": true
+        },
+        {
+          "name": "content",
+          "type": "String",
+          "info": "The body of the messag",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "updateComment",
+      "description": "Allows changing content of the message with an ID of `commentId` in the Basecamp with ID `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "commentId",
+          "type": "String",
+          "info": "Comment ID.",
+          "required": true
+        },
+        {
+          "name": "content",
+          "type": "String",
+          "info": "The body of the messag",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getRecordings",
+      "description": "Return a paginated list of records for the given type of recording.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "info": "Must be `Comment`, `Document`, `Message`, `Question::Answer`, `Schedule::Entry`, `Todo`, `Todolist`, or `Upload`.",
+          "required": true
+        },
+        {
+          "name": "bucket",
+          "type": "String",
+          "info": "Single or comma separated list of Basecamp IDs. Default: All active Basecamps visible to the current user.",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "info": "Options: `active`, `archived`, or `trashed`. Default: `active`",
+          "required": false
+        },
+        {
+          "name": "sort",
+          "type": "String",
+          "info": "Options: `created_at` or `updated_at`. Default: `created_at`.",
+          "required": false
+        },
+        {
+          "name": "direction",
+          "type": "String",
+          "info": "Options: `desc` or `asc`. Default: `desc`.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "deleteRecording",
+      "description": "mark the recording with an ID of `recordingId` in the Basecamp with ID `basecampId` as trashed.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "recordingId",
+          "type": "String",
+          "info": "Recording ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getDocuments",
+      "description": "Returns a list of active documents in the Basecamp with an ID of `basecampId` and the vault with ID of `vaultId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "vaultId",
+          "type": "String",
+          "info": "Recording ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getSingleDocument",
+      "description": "Return the document with an ID of `documentId` in the Basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "documentId",
+          "type": "String",
+          "info": "Document ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "createDocument",
+      "description": "Publishes a document in the Basecamp with ID `basecampId` and under the vault with an ID of `vaultId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "vaultId",
+          "type": "String",
+          "info": "Recording ID.",
+          "required": true
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "info": "Title of the document.",
+          "required": true
+        },
+        {
+          "name": "content",
+          "type": "String",
+          "info": "Body of the document.",
+          "required": true
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "info": "Set to `active` to publish immediately.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "updateSingleDocument",
+      "description": "Allows changing the title and content of the document with an ID of `documentId` in the Basecamp with ID `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "documentId",
+          "type": "String",
+          "info": "Document ID.",
+          "required": true
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "info": "Title of the document.",
+          "required": false
+        },
+        {
+          "name": "content",
+          "type": "String",
+          "info": "Body of the document.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getEvents",
+      "description": "Returns a list of events for the recording with an ID of `recordingId` in the Basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "recordingId",
+          "type": "String",
+          "info": "Recording ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getForwards",
+      "description": "Returns a list of active forwards in the Basecamp with an ID of `basecampId` and the inbox with an ID of `inboxId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID",
+          "required": true
+        },
+        {
+          "name": "inboxId",
+          "type": "String",
+          "info": "Inbox ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getSingleForward",
+      "description": "Returns the forward with an ID of `forwardId` in the Basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "forwardId",
+          "type": "String",
+          "info": "Forward ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getInbox",
+      "description": "Returns the inbox with an ID of `inboxId` for the Basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "inboxId",
+          "type": "String",
+          "info": "Inbox ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getMessageBoard",
+      "description": "Returns the message board for the Basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "boardId",
+          "type": "String",
+          "info": "Board ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getMessages",
+      "description": "Returns a list of active messages in the Basecamp with an ID of `basecampId` and the message board with ID of `boardId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "boardId",
+          "type": "String",
+          "info": "Board ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getSingleMessage",
+      "description": "Returns the message with an ID of `messageId` in the Basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "messageId",
+          "type": "String",
+          "info": "Message ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "createMessage",
+      "description": "Publishes a message in the Basecamp with ID `basecampId` and under the message board with an ID of `boardId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "boardId",
+          "type": "String",
+          "info": "Board ID.",
+          "required": true
+        },
+        {
+          "name": "subject",
+          "type": "String",
+          "info": "Title of the message.",
+          "required": true
+        },
+        {
+          "name": "content",
+          "type": "String",
+          "info": "Body of the message.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "updateMessage",
+      "description": "Allows changing the subject and content of the message with an ID of `messageId` in the Basecamp with ID `commentId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "messageId",
+          "type": "String",
+          "info": "Message ID.",
+          "required": true
+        },
+        {
+          "name": "subject",
+          "type": "String",
+          "info": "Title of the message.",
+          "required": false
+        },
+        {
+          "name": "content",
+          "type": "String",
+          "info": "Body of the message.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getAllPeople",
+      "description": "Return all people visible to the current user.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getPeopleOnBasecamp",
+      "description": "Returns all active people on the Basecamp with the given ID.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "createBasecampAccess",
+      "description": "Allows granting new people access to a Basecamp.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "people",
+          "type": "JSON",
+          "info": "An array of new people with name and email_address properties, and optional title and company_name properties. See README for more info.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "grantBasecampAccess",
+      "description": "Allows granting existing people access to a Basecamp.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "people",
+          "type": "JSON",
+          "info": "An array of people IDs. See README for more info.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "revokeBasecampAccess",
+      "description": "Allows revoking access from existing people.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "people",
+          "type": "JSON",
+          "info": "An array of people IDs. See README for more info.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getPingablePeople",
+      "description": "Returns all people on this Basecamp account who can be pinged.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getPerson",
+      "description": "Returns the profile for the user with the given ID.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "personId",
+          "type": "String",
+          "info": "Person ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getMyInfo",
+      "description": "Returns the current user's personal info.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getQuestionAnswers",
+      "description": "Returns a list of answers in the Basecamp with an ID of `basecampId` and the question with ID of `questionId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "questionId",
+          "type": "String",
+          "info": "Question ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getSingleQuestionAnswer",
+      "description": "Returns the answer with an ID of `answerId` in the Basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "answerId",
+          "type": "String",
+          "info": "Answer ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getQuestionnaire",
+      "description": "Returns the questionnaire for the Basecamp with an ID of `questionnaireId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "questionnaireId",
+          "type": "String",
+          "info": "Questionnaire id.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getQuestions",
+      "description": "Return a list of questions in the Basecamp with an ID of `basecampId` and the questionnaire with ID of `questionnaireId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "questionnaireId",
+          "type": "String",
+          "info": "Questionnaire ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getSingleQuestion",
+      "description": "Return the question with an ID of `questionId` in the Basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "questionId",
+          "type": "String",
+          "info": "Question ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getScheduleEntries",
+      "description": "Return a paginated list of active schedule entries in the Basecamp with an ID of `basecampId` and the schedule with ID of `scheduleId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "scheduleId",
+          "type": "String",
+          "info": "Schedule ID.",
+          "required": true
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "info": "When set to `archived` or `trashed`, will return archived or trashed schedule entries that are in this schedule.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getSingleScheduleEntry",
+      "description": "Return the schedule entry with an ID of `entryId` in the Basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "entryId",
+          "type": "String",
+          "info": "Schedule ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "createScheduleEntry",
+      "description": "Creates a schedule entry in the Basecamp with ID `basecampId` and under the schedule with an ID of `scheduleId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "scheduleId",
+          "type": "String",
+          "info": "Schedule ID.",
+          "required": true
+        },
+        {
+          "name": "summary",
+          "type": "String",
+          "info": "What this schedule entry is about",
+          "required": true
+        },
+        {
+          "name": "startsAt",
+          "type": "Number",
+          "info": "Timestamp for when this schedule entry begins",
+          "required": true
+        },
+        {
+          "name": "endsAt",
+          "type": "Number",
+          "info": "Timestamp for when this schedule entry ends",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "info": "Containing more information about the schedule entry",
+          "required": false
+        },
+        {
+          "name": "participantIds",
+          "type": "String",
+          "info": "An array of people IDs that will participate in this entry",
+          "required": false
+        },
+        {
+          "name": "allDay",
+          "type": "String",
+          "info": "When set to `true`, the schedule entry will not have a specific start or end time, and instead will be held for the entire day or days denoted in `starts_at` and `ends_at`",
+          "required": false
+        },
+        {
+          "name": "notify",
+          "type": "String",
+          "info": "When set to `true`, will notify the participants about the entry",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "updateScheduleEntry",
+      "description": "Allows changing of the schedule entry with an ID of `entryId` in the Basecamp with ID `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "entryId",
+          "type": "String",
+          "info": "Schedule entry ID.",
+          "required": true
+        },
+        {
+          "name": "summary",
+          "type": "String",
+          "info": "What this schedule entry is about",
+          "required": false
+        },
+        {
+          "name": "startsAt",
+          "type": "Number",
+          "info": "Timestamp for when this schedule entry begins",
+          "required": false
+        },
+        {
+          "name": "endsAt",
+          "type": "Number",
+          "info": "Timestamp for when this schedule entry ends",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "info": "Containing more information about the schedule entry",
+          "required": false
+        },
+        {
+          "name": "participantIds",
+          "type": "String",
+          "info": "An array of people IDs that will participate in this entry",
+          "required": false
+        },
+        {
+          "name": "allDay",
+          "type": "String",
+          "info": "When set to `true`, the schedule entry will not have a specific start or end time, and instead will be held for the entire day or days denoted in `starts_at` and `ends_at`",
+          "required": false
+        },
+        {
+          "name": "notify",
+          "type": "String",
+          "info": "When set to `true`, will notify the participants about the entry",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getSingleSchedule",
+      "description": "Returns the schedule for the Basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "scheduleId",
+          "type": "String",
+          "info": "Schedule ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getTemplates",
+      "description": "Returns a list of active Templates visible to the current user sorted by most recently created Template first.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "info": "When set to `archived` or `trashed`, will return archived or trashed Templates visible to the current user.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getSingleTemplate",
+      "description": "Returns the Template with the given ID, granted they have access to it.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "templateId",
+          "type": "String",
+          "info": "templateId",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "createTemplate",
+      "description": "Creates a new template.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "Name of template.",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "info": "Description of template.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "updateTemplate",
+      "description": "Allows updating of a Template's `name` and `description`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "templateId",
+          "type": "String",
+          "info": "Template ID.",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "New template name.",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "info": "New template description.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "deleteTemplate",
+      "description": "Marks the Template with the given ID as trashed. Trashed Templates will be deleted from Basecamp 3 after 30 days.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "templateId",
+          "type": "String",
+          "info": "Template ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getProjectConstruction",
+      "description": "Return the current state of the project construction.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "templateId",
+          "type": "String",
+          "info": "Template ID.",
+          "required": true
+        },
+        {
+          "name": "constructionId",
+          "type": "String",
+          "info": "Project construction ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getToDoLists",
+      "description": "Return a paginated list of active to-do lists in the Basecamp with an ID of `basecampId` and the to-do set with ID of `setId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "setId",
+          "type": "String",
+          "info": "Todo Set ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getSingleToDoList",
+      "description": "Returns the to-do list with an ID of `listId` in the Basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "listId",
+          "type": "String",
+          "info": "List ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "createToDoList",
+      "description": "Creates a to-do list in the Basecamp with ID `basecampId` and under the to-do set with an ID of `setId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "setId",
+          "type": "String",
+          "info": "To-do set ID.",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "Name of the to-do list.",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "info": "Containing information about the to-do list.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "updateToDoList",
+      "description": "Allows changing the name and description of the to-do list with an ID of `listId` in the Basecamp with ID `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "listId",
+          "type": "String",
+          "info": "To-do list ID",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "Name of the to-do list.",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "info": "Containing information about the to-do list.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getToDos",
+      "description": "Returns a list of active to-dos in the Basecamp with an ID of `basecampId` and the to-do list with ID of `listId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "listId",
+          "type": "String",
+          "info": "List ID.",
+          "required": true
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "info": "When set to `archived` or `trashed`, will return archived or trashed to-dos that are in this list.",
+          "required": false
+        },
+        {
+          "name": "completed",
+          "type": "String",
+          "info": "When set to true, will only return to-dos that are completed. Can be combined with the status parameter.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getSingleToDo",
+      "description": "Return the to-do with an ID of `todoId` in the Basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "todoId",
+          "type": "String",
+          "info": "To-do ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "createToDo",
+      "description": "Creates a to-do in the Basecamp with ID `basecampId` and under the to-do list with an ID of `listId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "listId",
+          "type": "String",
+          "info": "List ID.",
+          "required": true
+        },
+        {
+          "name": "content",
+          "type": "String",
+          "info": "What the to-do is for.",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "info": "Containing information about the to-do.",
+          "required": false
+        },
+        {
+          "name": "assigneeIds",
+          "type": "String",
+          "info": "An array of people that will be assigned to this to-do.",
+          "required": false
+        },
+        {
+          "name": "notify",
+          "type": "String",
+          "info": "When set to `true`, will notify the assignees about being assigned.",
+          "required": false
+        },
+        {
+          "name": "dueOn",
+          "type": "String",
+          "info": "A `YYYY-mm-dd` date when the to-do should be completed.",
+          "required": false
+        },
+        {
+          "name": "startsOn",
+          "type": "String",
+          "info": "Allows the to-do to run from this date to the `dueOn` date.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "updateToDo",
+      "description": "Allows changing the to-do with an ID of `todoId` in the Basecamp with ID `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "todoId",
+          "type": "String",
+          "info": "To-do list ID.",
+          "required": true
+        },
+        {
+          "name": "content",
+          "type": "String",
+          "info": "What the to-do is for.",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "info": "Containing information about the to-do.",
+          "required": false
+        },
+        {
+          "name": "assigneeIds",
+          "type": "String",
+          "info": "An array of people that will be assigned to this to-do.",
+          "required": false
+        },
+        {
+          "name": "notify",
+          "type": "String",
+          "info": "When set to `true`, will notify the assignees about being assigned.",
+          "required": false
+        },
+        {
+          "name": "dueOn",
+          "type": "String",
+          "info": "A `YYYY-mm-dd` date when the to-do should be completed.",
+          "required": false
+        },
+        {
+          "name": "startsOn",
+          "type": "String",
+          "info": "Allows the to-do to run from this date to the `dueOn` date.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "completeToDo",
+      "description": "Marks the to-do with an ID of `todoId` in the Basecamp with ID `basecampId` as completed.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "todoId",
+          "type": "String",
+          "info": "To-do ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "uncompleteToDo",
+      "description": "Marks the to-do with an ID of `todoId` in the Basecamp with ID `basecampId` as uncompleted.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "todoId",
+          "type": "String",
+          "info": "To-do ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "repositionToDo",
+      "description": "Allows changing the position of the to-do with an ID of `todoId` in the Basecamp with ID `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "todoId",
+          "type": "String",
+          "info": "Todo ID.",
+          "required": true
+        },
+        {
+          "name": "position",
+          "type": "Number",
+          "info": "Greater than or equal to one.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getToDoSet",
+      "description": "Returns the to-do set for the Basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "setId",
+          "type": "String",
+          "info": "To-do set ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getUploads",
+      "description": "Returns a paginated list of active uploads in the Basecamp with an ID of `basecampId` and the vault with ID of `vaultId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "vaultId",
+          "type": "String",
+          "info": "Vault ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getSingleUpload",
+      "description": "Returns the upload with an ID of `uploadId` in the Basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "uploadId",
+          "type": "String",
+          "info": "Upload ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "createUpload",
+      "description": "Creates an upload in the Basecamp with ID `basecampId` and under the vault with an ID of `vaultId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "vaultId",
+          "type": "String",
+          "info": "Vault ID.",
+          "required": true
+        },
+        {
+          "name": "attachableSgid",
+          "type": "String",
+          "info": "`attachable_sgid` for an uploaded attachment (from `createAttachment` method.)",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "info": "Containing information about the upload.",
+          "required": false
+        },
+        {
+          "name": "baseName",
+          "type": "String",
+          "info": "An new file name for the upload.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "updateUpload",
+      "description": "Allows changing the `description` and `baseName` of the upload with an ID of `uploadId` in the Basecamp with ID `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "uploadId",
+          "type": "String",
+          "info": "Upload ID.",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "info": "Containing information about the upload.",
+          "required": false
+        },
+        {
+          "name": "baseName",
+          "type": "String",
+          "info": "An new file name for the upload.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getVaults",
+      "description": "Returns a list of vaults in the Basecamp with an ID of `basecampId` and the vault with ID of `vaultId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "vaultId",
+          "type": "String",
+          "info": "Vault ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getSingleVault",
+      "description": "Returns the vault with an ID of `vaultId` in the Basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "",
+          "required": true
+        },
+        {
+          "name": "vaultId",
+          "type": "String",
+          "info": "",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "createVault",
+      "description": "Creates a vault in the Basecamp with ID `basecampId` and under the vault with an ID of `vaultId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "vaultId",
+          "type": "String",
+          "info": "Vault ID.",
+          "required": true
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "info": "Name of the vault.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "updateVault",
+      "description": "Allows changing the title of the vault with an ID of `vaultId` in the Basecamp with ID `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "vaultId",
+          "type": "String",
+          "info": "Vault ID.",
+          "required": true
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "info": "New vault title.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getWebhooks",
+      "description": "Returns all the webhooks from the basecamp with an ID of `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getSingleWebhook",
+      "description": "Returns the webhook with an ID of `webhookId` in the Basecamp with ID `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "webhookId",
+          "type": "String",
+          "info": "Webhook ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "createWebhook",
+      "description": "Creates a webhook in the Basecamp with ID `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "",
+          "required": true
+        },
+        {
+          "name": "payloadUrl",
+          "type": "String",
+          "info": "Payload url for the `HTTPS` url that Basecamp should call.",
+          "required": true
+        },
+        {
+          "name": "types",
+          "type": "JSON",
+          "info": "An array of types, options given in the introduction.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "updateWebhook",
+      "description": "Allows changing the payload url and types of the webhook with an ID of `webhookId` in the Basecamp with ID `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "webhookId",
+          "type": "String",
+          "info": "Webhook ID.",
+          "required": true
+        },
+        {
+          "name": "payloadUrl",
+          "type": "String",
+          "info": "Payload url for the `HTTPS` url that Basecamp should call.",
+          "required": false
+        },
+        {
+          "name": "types",
+          "type": "JSON",
+          "info": "An array of types, options given in the introduction.",
+          "required": false
+        },
+        {
+          "name": "active",
+          "type": "Boolean",
+          "info": "Boolean whether this webhook should be matching.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "deleteWebhook",
+      "description": "Deletes the webhook with an ID of `webhookId` in the Basecamp with ID `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "webhookId",
+          "type": "String",
+          "info": "Webhook ID.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getAccessToken",
+      "description": "Returns `accessToken`.",
+      "args": [
+        {
+          "name": "clientId",
+          "type": "String",
+          "info": "Basecamp integration Client ID.",
+          "required": true
+        },
+        {
+          "name": "clientSecret",
+          "type": "String",
+          "info": "Basecamp integration Client Secret.",
+          "required": true
+        },
+        {
+          "name": "redirectUri",
+          "type": "String",
+          "info": "Basecamp integration Redirect Uri.",
+          "required": true
+        },
+        {
+          "name": "code",
+          "type": "String",
+          "info": "OAuth2 code.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "refreshAccessToken",
+      "description": "Allows refresh accessToken.",
+      "args": [
+        {
+          "name": "refreshToken",
+          "type": "String",
+          "info": "OAuth2 Refresh Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "clientId",
+          "type": "String",
+          "info": "Basecamp integration Client ID.",
+          "required": true
+        },
+        {
+          "name": "clientSecret",
+          "type": "String",
+          "info": "Basecamp integration Client Secret.",
+          "required": true
+        },
+        {
+          "name": "redirectUri",
+          "type": "String",
+          "info": "Basecamp integration Redirect Uri.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getAuthorization",
+      "description": "Returns Authorization information.",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    }
+  ]
+}
