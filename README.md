@@ -1,6 +1,6 @@
 # Basecamp3 Package
 
-* Domain: 
+* Domain: 3.basecamp.com
 * Credentials: clientId, clientSecret
 
 ## How to get credentials: 
