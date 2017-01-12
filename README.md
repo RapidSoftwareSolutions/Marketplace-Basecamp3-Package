@@ -12,7 +12,7 @@
 5. If the user accepts, they will be redirected back to https://[your registered redirect URI]/?code=[CODE]
 6. Use **getAccessToken** method to get users's accessToken.
 
-## Basecamp3. 
+## Basecamp3.createAttachment
 Create an attachment
 
 | Field        | Type  | Description
