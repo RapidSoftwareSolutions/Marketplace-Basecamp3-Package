@@ -17,7 +17,7 @@
   "blocks": [
     {
       "name": "createAttachment",
-      "description": "Create an attachment",
+      "description": "Creates an attachment",
       "args": [
         {
           "name": "accountId",

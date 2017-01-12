@@ -13,7 +13,7 @@
 6. Use **getAccessToken** method to get users's accessToken.
 
 ## Basecamp3.createAttachment
-Create an attachment
+Creates an attachment
 
 | Field        | Type  | Description
 |--------------|-------|----------
