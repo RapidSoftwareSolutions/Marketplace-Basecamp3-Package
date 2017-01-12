@@ -16,6 +16,34 @@
   },
   "blocks": [
     {
+      "name": "nextPage",
+      "description": "Use this block to paginate through results.",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "url",
+          "type": "String",
+          "info": "Next page URL.",
+          "required": "true"
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
       "name": "createAttachment",
       "description": "Creates an attachment",
       "args": [

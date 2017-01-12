@@ -3,7 +3,7 @@ global.PACKAGE_NAME = 'Basecamp3';
 
 const express       = require('express'),
     bodyParser      = require('body-parser'),
-    RAPI            = require('rapi-js-package'),
+    RAPI            = require('../package.js'),
     fs              = require('fs'),
     lib             = require('./lib'),
     _               = lib.callback;
@@ -24,10 +24,11 @@ app.all(`/api/${PACKAGE_NAME}`, (req, res) => { res.send(metadata); });
 
 for(let func in control) {
     let options = {
-        query:    {},
-        hasSkip:  true,
-        parseUri: true,
-        debug:    false
+        query:     {},
+        hasSkip:   true,
+        parseUri:  true,
+        debug:     false,
+        includeRes:true 
     };
 
     let {
@@ -39,7 +40,6 @@ for(let func in control) {
     } = control[func];
 
     app.post(`/api/${PACKAGE_NAME}/${func}`, _(function* (req, res) {
-        let response;
         let opts = {};
         let r    = {
             callback     : "",
@@ -59,7 +59,7 @@ for(let func in control) {
             method == 'GET' ? options.query = opts : options.body = opts;
             options.method = method;
 
-            response = yield new RAPI(url, {
+            let {response, result} = yield new RAPI(url, {
                 headers: {
                     'User-Agent': 'RapidApi Basecamp (team@rapidapi.com)'
                 }
@@ -68,9 +68,16 @@ for(let func in control) {
                 token: req.body.args['accessToken']
             }).request(options);
 
-            console.log(response);
             r.callback            = 'success';
-            r.contextWrites['to'] = lib.success(response);
+            r.contextWrites['to'] = lib.success({
+               result
+            });
+
+            if(response.headers['link']) {
+                r.contextWrites['to']['next_page']   = response.headers['link'].split('<')[1].split('>')[0];
+                r.contextWrites['to']['total_count'] = parseInt(response.headers['x-total-count']);
+            }
+
         } catch(e) {
             r.callback            = 'error';
             r.contextWrites['to'] = lib.error(e);

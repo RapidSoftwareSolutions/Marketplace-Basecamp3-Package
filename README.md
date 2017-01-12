@@ -12,6 +12,17 @@
 5. If the user accepts, they will be redirected back to https://[your registered redirect URI]/?code=[CODE]
 6. Use **getAccessToken** method to get users's accessToken.
 
+## Pagination
+todo
+
+## Basecamp3.nextPage
+Creates an attachment
+
+| Field        | Type  | Description
+|--------------|-------|----------
+| accessToken  | String| OAuth2 Access Token from `getAccessToken` block.
+| url          | String| Next page URL. 
+
 ## Basecamp3.createAttachment
 Creates an attachment
 
