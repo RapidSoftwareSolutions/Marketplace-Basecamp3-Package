@@ -464,7 +464,19 @@ Allows granting new people access to a Basecamp.
 | accountId    | String| Basecamp Account ID.
 | accessToken  | String| OAuth2 Access Token from `getAccessToken` block.
 | basecampId   | String| Basecamp ID.
-| people       | JSON  | An array of new people with name and email_address properties, and optional title and company_name properties. See README for more info.
+| people       | JSON  | An array of new people with name and email_address properties, and optional title and company_name properties.
+
+#### `people` field example:
+```json
+"people": [
+	{
+  		"name": "Victor Copper",
+  		"email_address": "victor@hanchodesign.com",
+  		"title": "Prankster",
+  		"company_name": "Hancho Design"
+	}
+]
+```
 
 ## Basecamp3.grantBasecampAccess
 Allows granting existing people access to a Basecamp.
@@ -474,7 +486,14 @@ Allows granting existing people access to a Basecamp.
 | accountId    | String| Basecamp Account ID.
 | accessToken  | String| OAuth2 Access Token from `getAccessToken` block.
 | basecampId   | String| Basecamp ID.
-| people       | JSON  | An array of people IDs. See README for more info.
+| people       | JSON  | An array of people IDs.
+
+#### `people` field example:
+```json
+"people": [
+    1007299151
+ ]
+```
 
 ## Basecamp3.revokeBasecampAccess
 Allows revoking access from existing people.
@@ -485,6 +504,13 @@ Allows revoking access from existing people.
 | accessToken  | String| OAuth2 Access Token from `getAccessToken` block.
 | basecampId   | String| Basecamp ID.
 | people       | JSON  | An array of people IDs. See README for more info.
+
+#### `people` field example:
+```json
+"people": [
+    1007299151
+ ]
+```
 
 ## Basecamp3.getPingablePeople
 Returns all people on this Basecamp account who can be pinged.
@@ -940,6 +966,11 @@ Creates a webhook in the Basecamp with ID `basecampId`.
 | payloadUrl   | String| Payload url for the `HTTPS` url that Basecamp should call.
 | types        | JSON  | An array of types, options given in the introduction.
 
+#### `types` field example: 
+```json
+"types": [ "Todo", "Todolist" ]
+```
+
 ## Basecamp3.updateWebhook
 Allows changing the payload url and types of the webhook with an ID of `webhookId` in the Basecamp with ID `basecampId`.
 
@@ -952,6 +983,11 @@ Allows changing the payload url and types of the webhook with an ID of `webhookI
 | payloadUrl   | String | Payload url for the `HTTPS` url that Basecamp should call.
 | types        | JSON   | An array of types, options given in the introduction.
 | active       | Boolean| Boolean whether this webhook should be matching.
+
+#### `types` field example: 
+```json
+"types": [ "Todo", "Todolist" ]
+```
 
 ## Basecamp3.deleteWebhook
 Deletes the webhook with an ID of `webhookId` in the Basecamp with ID `basecampId`.
