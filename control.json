@@ -735,7 +735,7 @@
             "String|accessToken": "$!accessToken",
             "String|basecampId": "$!basecampId",
             "String|listId": "$!listId",
-            "String|name": "$name",
+            "String|name": "$name"
         }
     },
     "getToDos": {

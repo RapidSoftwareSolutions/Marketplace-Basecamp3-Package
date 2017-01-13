@@ -14,7 +14,7 @@ Best choice for integrating your application with or creating your own applicati
 6. Use **getAccessToken** method to get users's accessToken.
 
 ## Pagination
-todo
+Basecamp 3 API have limitation on result it can return. In one request you can receive no more then 50 results. If your account have more then 50 results Basecamp will return first 50 results and provide you with url to the next page which would contain other data. Also it has some limitation on how often you can make your requests, limit is 50 requests per 10-second period from the same IP address for the same account. Thats why we provide you with `nextPage` block. It will help you to iterate though pages in easy way. Just enter the url to the page, you need to go.
 
 ## Basecamp3.nextPage
 Creates an attachment
