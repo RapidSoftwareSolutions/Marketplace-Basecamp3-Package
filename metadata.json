@@ -3955,13 +3955,13 @@
       "args": [
         {
           "name": "clientId",
-          "type": "String",
+          "type": "credentials",
           "info": "Basecamp integration Client ID.",
           "required": true
         },
         {
           "name": "clientSecret",
-          "type": "String",
+          "type": "credentials",
           "info": "Basecamp integration Client Secret.",
           "required": true
         },
