@@ -29,7 +29,7 @@
           "name": "url",
           "type": "String",
           "info": "Next page URL.",
-          "required": "true"
+          "required": true
         }
       ],
       "callbacks": [
