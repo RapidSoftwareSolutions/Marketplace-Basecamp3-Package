@@ -61,8 +61,8 @@ Creates a new Basecamp.
 | name         | String| Basecamp name.
 | description  | String| Basecamp description.
 
-## Basecamp3.updateBasecamp
-Will allow updating of a Basecamp's name and description.
+## Basecamp3.updateBasecampName
+Will allow updating of a Basecamp's name.
 
 | Field        | Type  | Description
 |--------------|-------|----------
@@ -70,6 +70,15 @@ Will allow updating of a Basecamp's name and description.
 | accessToken  | String| OAuth2 Access Token from `getAccessToken` block.
 | id           | String| Basecamp ID.
 | name         | String| New Basecamp name.
+
+## Basecamp3.updateBasecampDescription
+Will allow updating of a Basecamp's name and description.
+
+| Field        | Type  | Description
+|--------------|-------|----------
+| accountId    | String| Basecamp Account ID.
+| accessToken  | String| OAuth2 Access Token from `getAccessToken` block.
+| id           | String| Basecamp ID.
 | description  | String| New Basecamp description.
 
 ## Basecamp3.deleteBasecamp

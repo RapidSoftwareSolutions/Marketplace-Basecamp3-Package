@@ -27,15 +27,24 @@
             "String|description": "description"
         }
     },
-    "updateBasecamp": {
+    "updateBasecampName": {
         "url": "https://3.basecampapi.com/:accountId/projects/:id.json",
         "method": "PUT",
         "args": {
             "String|accountId": "$!accountId",
             "String|accessToken": "$!accessToken",
             "String|id": "$!id",
-            "String|name": "name",
-            "String|description": "description"
+            "String|name": "$name",
+        }
+    },
+    "updateBasecampDescription": {
+        "url": "https://3.basecampapi.com/:accountId/projects/:id.json",
+        "method": "PUT",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|id": "$!id",
+            "String|description": "$description"
         }
     },
     "deleteBasecamp": {

@@ -192,8 +192,8 @@
       ]
     },
     {
-      "name": "updateBasecamp",
-      "description": "Will allow updating of a Basecamp's name and description.",
+      "name": "updateBasecampName",
+      "description": "Will allow updating of a Basecamp's name.",
       "args": [
         {
           "name": "accountId",
@@ -217,13 +217,47 @@
           "name": "name",
           "type": "String",
           "info": "New Basecamp name.",
-          "required": false
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "updateBasecampDescription",
+      "description": "Will allow updating of a Basecamp's description.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
         },
         {
           "name": "description",
           "type": "String",
           "info": "New Basecamp description.",
-          "required": false
+          "required": true
         }
       ],
       "callbacks": [
