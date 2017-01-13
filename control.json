@@ -34,7 +34,7 @@
             "String|accountId": "$!accountId",
             "String|accessToken": "$!accessToken",
             "String|id": "$!id",
-            "String|name": "$name",
+            "String|name": "$name"
         }
     },
     "updateBasecampDescription": {
