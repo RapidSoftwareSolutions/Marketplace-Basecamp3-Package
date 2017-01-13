@@ -457,7 +457,7 @@
         }
     },
     "createBasecampAccess": {
-        "url": "https://3.basecampapi.com/:accountId/projects/:basecampId/people.json",
+        "url": "https://3.basecampapi.com/:accountId/projects/:basecampId/people/users.json",
         "method": "PUT",
         "args": {
             "String|accountId": "$!accountId",
@@ -467,7 +467,7 @@
         }
     },
     "grantBasecampAccess": {
-        "url": "https://3.basecampapi.com/:accountId/projects/:basecampId/people.json",
+        "url": "https://3.basecampapi.com/:accountId/projects/:basecampId/people/users.json",
         "method": "PUT",
         "args": {
             "String|accountId": "$!accountId",
@@ -477,7 +477,7 @@
         }
     },
     "revokeBasecampAccess": {
-        "url": "https://3.basecampapi.com/:accountId/projects/:basecampId/people.json",
+        "url": "https://3.basecampapi.com/:accountId/projects/:basecampId/people/users.json",
         "method": "PUT",
         "args": {
             "String|accountId": "$!accountId",
@@ -672,6 +672,17 @@
             "String|accountId": "$!accountId",
             "String|accessToken": "$!accessToken",
             "String|templateId": "$!templateId"
+        }
+    },
+    "createProjectConstruction": {
+        "url": "https://3.basecampapi.com/:accountId/templates/:templateId/project_constructions",
+        "method": "POST",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|templateId": "$!templateId",
+            "String|projectName": "$project.name",
+            "String|projectDescription": "project.description"
         }
     },
     "getProjectConstruction": {

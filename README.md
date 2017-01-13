@@ -732,6 +732,17 @@ Marks the Template with the given ID as trashed. Trashed Templates will be delet
 | accessToken  | String| OAuth2 Access Token from `getAccessToken` block.
 | templateId   | String| Template ID.
 
+## Basecamp3.createProjectConstruction
+To create a project given a template, you need to create a project construction.
+
+| Field             | Type  | Description
+|-------------------|-------|----------
+| accountId         | String| Basecamp Account ID.
+| accessToken       | String| OAuth2 Access Token from `getAccessToken` block.
+| templateId        | String| Template ID.
+| projectName       | String| Project name.
+| projectDescription| String| Project description.
+
 ## Basecamp3.getProjectConstruction
 Return the current state of the project construction.
 

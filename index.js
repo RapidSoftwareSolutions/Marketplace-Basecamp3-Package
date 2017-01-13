@@ -57,7 +57,9 @@ for(let func in control) {
             }
 
             method == 'GET' ? options.query = opts : options.body = opts;
-            options.method = method;
+            options.method  = method;
+            // todo
+            options.hasTree = func == 'createProjectConstruction';
 
             let {response, result} = yield new RAPI(url, {
                 headers: {
