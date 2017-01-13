@@ -1,7 +1,7 @@
 {
   "package": "Basecamp3",
   "tagline": "Basecamp 3 API Package",
-  "description": "",
+  "description": "Best choice for integrating your application with or creating your own application in concert with data inside of Basecamp 3.",
   "image": "https://37signals.com/images/basecamp-logo.png",
   "keywords": [
     "API"
@@ -485,6 +485,12 @@
           "name": "campfireId",
           "type": "String",
           "info": "Campfire ID.",
+          "required": true
+        },
+        {
+          "name": "content",
+          "type": "String",
+          "info": "Plain text body for the Campfire line.",
           "required": true
         }
       ],
@@ -1384,8 +1390,54 @@
       ]
     },
     {
-      "name": "updateSingleDocument",
-      "description": "Allows changing the title and content of the document with an ID of `documentId` in the Basecamp with ID `basecampId`.",
+      "name": "updateSingleDocumentContent",
+      "description": "Allows changing the content of the document with an ID of `documentId` in the Basecamp with ID `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "documentId",
+          "type": "String",
+          "info": "Document ID.",
+          "required": true
+        },
+        {
+          "name": "content",
+          "type": "String",
+          "info": "Body of the document.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "updateSingleDocumentTitle",
+      "description": "Allows changing the title of the document with an ID of `documentId` in the Basecamp with ID `basecampId`.",
       "args": [
         {
           "name": "accountId",
@@ -1415,13 +1467,7 @@
           "name": "title",
           "type": "String",
           "info": "Title of the document.",
-          "required": false
-        },
-        {
-          "name": "content",
-          "type": "String",
-          "info": "Body of the document.",
-          "required": false
+          "required": true
         }
       ],
       "callbacks": [
@@ -2413,14 +2459,14 @@
         },
         {
           "name": "startsAt",
-          "type": "Number",
-          "info": "Timestamp for when this schedule entry begins",
+          "type": "String",
+          "info": "Timestamp for when this schedule entry begins. Example: `2015-06-04T00:00:00Z`",
           "required": true
         },
         {
           "name": "endsAt",
-          "type": "Number",
-          "info": "Timestamp for when this schedule entry ends",
+          "type": "String",
+          "info": "Timestamp for when this schedule entry ends. Example: `2015-06-04T00:00:00Z`",
           "required": true
         },
         {
@@ -2942,8 +2988,8 @@
       ]
     },
     {
-      "name": "updateToDoList",
-      "description": "Allows changing the name and description of the to-do list with an ID of `listId` in the Basecamp with ID `basecampId`.",
+      "name": "updateToDoListName",
+      "description": "Allows changing the name of the to-do list with an ID of `listId` in the Basecamp with ID `basecampId`.",
       "args": [
         {
           "name": "accountId",
@@ -2973,13 +3019,53 @@
           "name": "name",
           "type": "String",
           "info": "Name of the to-do list.",
-          "required": false
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "updateToDoListDescription",
+      "description": "Allows changing the description of the to-do list with an ID of `listId` in the Basecamp with ID `basecampId`.",
+      "args": [
+        {
+          "name": "accountId",
+          "type": "String",
+          "info": "Basecamp Account ID.",
+          "required": true
+        },
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "OAuth2 Access Token from `getAccessToken` block.",
+          "required": true
+        },
+        {
+          "name": "basecampId",
+          "type": "String",
+          "info": "Basecamp ID.",
+          "required": true
+        },
+        {
+          "name": "listId",
+          "type": "String",
+          "info": "To-do list ID",
+          "required": true
         },
         {
           "name": "description",
           "type": "String",
           "info": "Containing information about the to-do list.",
-          "required": false
+          "required": true
         }
       ],
       "callbacks": [

@@ -1,4 +1,5 @@
 # Basecamp3 Package
+Best choice for integrating your application with or creating your own application in concert with data inside of Basecamp 3.
 
 * Domain: 3.basecamp.com
 * Credentials: clientId, clientSecret
@@ -138,6 +139,7 @@ Creates a line in the Campfire with ID `campfireId` in the Basecamp with ID `bas
 | accessToken  | String| OAuth2 Access Token from `getAccessToken` block.
 | basecampId   | String| Basecamp ID.
 | campfireId   | String| Campfire ID.
+| content      | String| Plain text body for the Campfire line.
 
 ## Basecamp3.getChatbots
 Return all the chatbots from the account with the line URL for the campfire with id `campfireId` on the basecamp with an ID of `basecampId`.
@@ -353,8 +355,8 @@ Publishes a document in the Basecamp with ID `basecampId` and under the vault wi
 | content      | String| Body of the document.
 | status       | String| Set to `active` to publish immediately.
 
-## Basecamp3.updateSingleDocument
-Allows changing the title and content of the document with an ID of `documentId` in the Basecamp with ID `basecampId`.
+## Basecamp3.updateSingleDocumentTitle
+Allows changing the title of the document with an ID of `documentId` in the Basecamp with ID `basecampId`.
 
 | Field        | Type  | Description
 |--------------|-------|----------
@@ -363,6 +365,16 @@ Allows changing the title and content of the document with an ID of `documentId`
 | basecampId   | String| Basecamp ID.
 | documentId   | String| Document ID.
 | title        | String| Title of the document.
+
+## Basecamp3.updateSingleDocumentContent
+Allows changing the content of the document with an ID of `documentId` in the Basecamp with ID `basecampId`.
+
+| Field        | Type  | Description
+|--------------|-------|----------
+| accountId    | String| Basecamp Account ID.
+| accessToken  | String| OAuth2 Access Token from `getAccessToken` block.
+| basecampId   | String| Basecamp ID.
+| documentId   | String| Document ID.
 | content      | String| Body of the document.
 
 ## Basecamp3.getEvents
@@ -638,8 +650,8 @@ Creates a schedule entry in the Basecamp with ID `basecampId` and under the sche
 | basecampId    | String| Basecamp ID.
 | scheduleId    | String| Schedule ID.
 | summary       | String| What this schedule entry is about
-| startsAt      | Number| Timestamp for when this schedule entry begins
-| endsAt        | Number| Timestamp for when this schedule entry ends
+| startsAt      | String| Timestamp for when this schedule entry begins. Example: `2015-06-04T00:00:00Z`
+| endsAt        | String| Timestamp for when this schedule entry ends. Example: `2015-06-04T02:00:00Z`
 | description   | String| Containing more information about the schedule entry
 | participantIds| String| An array of people IDs that will participate in this entry
 | allDay        | String| When set to `true`, the schedule entry will not have a specific start or end time, and instead will be held for the entire day or days denoted in `starts_at` and `ends_at`
@@ -655,8 +667,8 @@ Allows changing of the schedule entry with an ID of `entryId` in the Basecamp wi
 | basecampId    | String| Basecamp ID.
 | entryId       | String| Schedule entry ID.
 | summary       | String| What this schedule entry is about
-| startsAt      | Number| Timestamp for when this schedule entry begins
-| endsAt        | Number| Timestamp for when this schedule entry ends
+| startsAt      | String| Timestamp for when this schedule entry begins. Example: `2015-06-04T00:00:00Z`
+| endsAt        | String| Timestamp for when this schedule entry ends. Example: `2015-06-04T02:00:00Z`
 | description   | String| Containing more information about the schedule entry
 | participantIds| String| An array of people IDs that will participate in this entry
 | allDay        | String| When set to `true`, the schedule entry will not have a specific start or end time, and instead will be held for the entire day or days denoted in `starts_at` and `ends_at`
@@ -762,8 +774,8 @@ Creates a to-do list in the Basecamp with ID `basecampId` and under the to-do se
 | name         | String| Name of the to-do list.
 | description  | String| Containing information about the to-do list.
 
-## Basecamp3.updateToDoList
-Allows changing the name and description of the to-do list with an ID of `listId` in the Basecamp with ID `basecampId`.
+## Basecamp3.updateToDoListName
+Allows changing the name of the to-do list with an ID of `listId` in the Basecamp with ID `basecampId`.
 
 | Field        | Type  | Description
 |--------------|-------|----------
@@ -772,6 +784,16 @@ Allows changing the name and description of the to-do list with an ID of `listId
 | basecampId   | String| Basecamp ID.
 | listId       | String| To-do list ID
 | name         | String| Name of the to-do list.
+
+## Basecamp3.updateToDoListDescription
+Allows changing the description of the to-do list with an ID of `listId` in the Basecamp with ID `basecampId`.
+
+| Field        | Type  | Description
+|--------------|-------|----------
+| accountId    | String| Basecamp Account ID.
+| accessToken  | String| OAuth2 Access Token from `getAccessToken` block.
+| basecampId   | String| Basecamp ID.
+| listId       | String| To-do list ID
 | description  | String| Containing information about the to-do list.
 
 ## Basecamp3.getToDos

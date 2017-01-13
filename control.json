@@ -102,7 +102,8 @@
             "String|accountId": "$!accountId",
             "String|accessToken": "$!accessToken",
             "String|basecampId": "$!basecampId",
-            "String|campfireId": "$!campfireId"
+            "String|campfireId": "$!campfireId",
+            "String|content": "$content"
         }
     },
     "getChatbots": {
@@ -287,7 +288,7 @@
         }
     },
     "getDocuments": {
-        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/vaults/:recordingId/documents.json",
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/vaults/:vaultId/documents.json",
         "method": "GET",
         "args": {
             "String|accountId": "$!accountId",
@@ -307,7 +308,7 @@
         }
     },
     "createDocument": {
-        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/vaults/:vaultId/documents.json",
+        "url": "https://3.basfgetecampapi.com/:accountId/buckets/:basecampId/vaults/:vaultId/documents.json",
         "method": "POST",
         "args": {
             "String|accountId": "$!accountId",
@@ -319,7 +320,7 @@
             "String|status": "status"
         }
     },
-    "updateSingleDocument": {
+    "updateSingleDocumentTitle": {
         "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/documents/:documentId.json",
         "method": "PUT",
         "args": {
@@ -327,8 +328,18 @@
             "String|accessToken": "$!accessToken",
             "String|basecampId": "$!basecampId",
             "String|documentId": "$!documentId",
-            "String|title": "title",
-            "String|content": "content"
+            "String|title": "$title"
+        }
+    },
+    "updateSingleDocumentContent": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/documents/:documentId.json",
+        "method": "PUT",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|documentId": "$!documentId",
+            "String|content": "$content"
         }
     },
     "getEvents": {
@@ -484,12 +495,12 @@
         }
     },
     "getPerson": {
-        "url": "https://3.basecampapi.com/:accountId/people/personId.json",
+        "url": "https://3.basecampapi.com/:accountId/people/:personId.json",
         "method": "GET",
         "args": {
             "String|accountId": "$!accountId",
             "String|accessToken": "$!accessToken",
-            "String|personId": "$personId"
+            "String|personId": "$!personId"
         }
     },
     "getMyInfo": {
@@ -597,8 +608,8 @@
             "String|basecampId": "$!basecampId",
             "String|entryId": "$!entryId",
             "String|summary": "summary",
-            "Number|startsAt": "starts_at",
-            "Number|endsAt": "ends_at",
+            "String|startsAt": "starts_at",
+            "String|endsAt": "ends_at",
             "String|description": "description",
             "String|participantIds": "participant_ids",
             "String|allDay": "all_day",
@@ -645,7 +656,7 @@
     },
     "updateTemplate": {
         "url": "https://3.basecampapi.com/:accountId/templates/:templateId.json",
-        "method": "GET",
+        "method": "PUT",
         "args": {
             "String|accountId": "$!accountId",
             "String|accessToken": "$!accessToken",
@@ -674,13 +685,13 @@
         }
     },
     "getToDoLists": {
-        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/todosets/:listId/todolists.json",
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/todosets/:setId/todolists.json",
         "method": "GET",
         "args": {
             "String|accountId": "$!accountId",
             "String|accessToken": "$!accessToken",
             "String|basecampId": "$!basecampId",
-            "String|setId": "$setId"
+            "String|setId": "$!setId"
         }
     },
     "getSingleToDoList": {
@@ -705,7 +716,7 @@
             "String|description": "description"
         }
     },
-    "updateToDoList": {
+    "updateToDoListDescription": {
         "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/todolists/:listId.json",
         "method": "PUT",
         "args": {
@@ -713,8 +724,18 @@
             "String|accessToken": "$!accessToken",
             "String|basecampId": "$!basecampId",
             "String|listId": "$!listId",
-            "String|name": "name",
-            "String|description": "description"
+            "String|description": "$description"
+        }
+    },
+    "updateToDoListName": {
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/todolists/:listId.json",
+        "method": "PUT",
+        "args": {
+            "String|accountId": "$!accountId",
+            "String|accessToken": "$!accessToken",
+            "String|basecampId": "$!basecampId",
+            "String|listId": "$!listId",
+            "String|name": "$name",
         }
     },
     "getToDos": {
@@ -793,7 +814,7 @@
     },
     "repositionToDo": {
         "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/todos/:todoId/position.json",
-        "method": "GET",
+        "method": "PUT",
         "args": {
             "String|accountId": "$!accountId",
             "String|accessToken": "$!accessToken",
