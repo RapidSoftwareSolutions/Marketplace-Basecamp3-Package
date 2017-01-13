@@ -63,7 +63,7 @@
           "name": "name",
           "type": "String",
           "info": "File name.",
-          "required": "true"
+          "required": true
         },
         {
           "name": "file",
