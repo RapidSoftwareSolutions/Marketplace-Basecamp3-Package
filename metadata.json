@@ -3784,13 +3784,13 @@
         {
           "name": "basecampId",
           "type": "String",
-          "info": "",
+          "info": "Basecamp ID.",
           "required": true
         },
         {
           "name": "vaultId",
           "type": "String",
-          "info": "",
+          "info": "Vault ID.",
           "required": true
         }
       ],
