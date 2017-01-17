@@ -308,7 +308,7 @@
         }
     },
     "createDocument": {
-        "url": "https://3.basfgetecampapi.com/:accountId/buckets/:basecampId/vaults/:vaultId/documents.json",
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/vaults/:vaultId/documents.json",
         "method": "POST",
         "args": {
             "String|accountId": "$!accountId",
