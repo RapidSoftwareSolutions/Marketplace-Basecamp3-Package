@@ -140,7 +140,7 @@
         }
     },
     "updateChatbot": {
-        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/buckets/:basecampId/chats/:campfireId/integrations/:botId.json",
+        "url": "https://3.basecampapi.com/:accountId/buckets/:basecampId/chats/:campfireId/integrations/:botId.json",
         "method": "PUT",
         "args": {
             "String|accountId": "$!accountId",
