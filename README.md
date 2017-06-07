@@ -15,6 +15,15 @@ Best choice for integrating your application with or creating your own applicati
 5. If the user accepts, they will be redirected back to https://[your registered redirect URI]/?code=[CODE]
 6. Use **getAccessToken** method to get users's accessToken.
 
+## Custom datatypes:
+ |Datatype|Description|Example
+ |--------|-----------|----------
+ |Datepicker|String which includes date and time|```2016-05-28 00:00:00```
+ |Map|String which includes latitude and longitude coma separated|```50.37, 26.56```
+ |List|Simple array|```["123", "sample"]```
+ |Select|String with predefined values|```sample```
+ |Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
+
 ## Pagination
 Basecamp 3 API have limitation on result it can return. In one request you can receive no more then 50 results. If your account have more then 50 results Basecamp will return first 50 results and provide you with url to the next page which would contain other data. Also it has some limitation on how often you can make your requests, limit is 50 requests per 10-second period from the same IP address for the same account. Thats why we provide you with `nextPage` block. It will help you to iterate though pages in easy way. Just enter the url to the page, you need to go.
 
@@ -43,7 +52,7 @@ Creates an attachment
 |--------------|-------|----------
 | accountId    | String| Basecamp Account ID.
 | accessToken  | String| OAuth2 Access Token from `getAccessToken` block.
-| status       | String| When set to `archived` or `trashed`, will return archived or trashed Basecamps visible to the current user.
+| status       | Select| When set to `archived` or `trashed`, will return archived or trashed Basecamps visible to the current user.
 
 ## Basecamp3.getSingleBasecamp
 Returns the Basecamp with the given ID, granted they have access to it.
@@ -308,11 +317,11 @@ Return a paginated list of records for the given type of recording.
 |--------------|-------|----------
 | accountId    | String| Basecamp Account ID.
 | accessToken  | String| OAuth2 Access Token from `getAccessToken` block.
-| type         | String| Must be `Comment`, `Document`, `Message`, `Question::Answer`, `Schedule::Entry`, `Todo`, `Todolist`, or `Upload`.
+| type         | Select| Must be `Comment`, `Document`, `Message`, `Question::Answer`, `Schedule::Entry`, `Todo`, `Todolist`, or `Upload`.
 | bucket       | String| Single or comma separated list of Basecamp IDs. Default: All active Basecamps visible to the current user.
-| status       | String| Options: `active`, `archived`, or `trashed`. Default: `active`
-| sort         | String| Options: `created_at` or `updated_at`. Default: `created_at`.
-| direction    | String| Options: `desc` or `asc`. Default: `desc`.
+| status       | Select| Options: `active`, `archived`, or `trashed`. Default: `active`
+| sort         | Select| Options: `created_at` or `updated_at`. Default: `created_at`.
+| direction    | Select| Options: `desc` or `asc`. Default: `desc`.
 
 ## Basecamp3.deleteRecording
 mark the recording with an ID of `recordingId` in the Basecamp with ID `basecampId` as trashed.
@@ -498,7 +507,7 @@ Allows granting new people access to a Basecamp.
 | accountId    | String| Basecamp Account ID.
 | accessToken  | String| OAuth2 Access Token from `getAccessToken` block.
 | basecampId   | String| Basecamp ID.
-| people       | JSON  | An array of new people with name and email_address properties, and optional title and company_name properties.
+| people       | Array  | An array of new people with name and email_address properties, and optional title and company_name properties.
 
 #### `people` field example:
 ```json
@@ -520,7 +529,7 @@ Allows granting existing people access to a Basecamp.
 | accountId    | String| Basecamp Account ID.
 | accessToken  | String| OAuth2 Access Token from `getAccessToken` block.
 | basecampId   | String| Basecamp ID.
-| people       | JSON  | An array of people IDs.
+| people       | List  | An array of people IDs.
 
 #### `people` field example:
 ```json
@@ -537,7 +546,7 @@ Allows revoking access from existing people.
 | accountId    | String| Basecamp Account ID.
 | accessToken  | String| OAuth2 Access Token from `getAccessToken` block.
 | basecampId   | String| Basecamp ID.
-| people       | JSON  | An array of people IDs. See README for more info.
+| people       | List  | An array of people IDs. See README for more info.
 
 #### `people` field example:
 ```json
@@ -630,7 +639,7 @@ Return a paginated list of active schedule entries in the Basecamp with an ID of
 | accessToken  | String| OAuth2 Access Token from `getAccessToken` block.
 | basecampId   | String| Basecamp ID.
 | scheduleId   | String| Schedule ID.
-| status       | String| When set to `archived` or `trashed`, will return archived or trashed schedule entries that are in this schedule.
+| status       | Select| When set to `archived` or `trashed`, will return archived or trashed schedule entries that are in this schedule.
 
 ## Basecamp3.getSingleScheduleEntry
 Return the schedule entry with an ID of `entryId` in the Basecamp with an ID of `basecampId`.
@@ -652,8 +661,8 @@ Creates a schedule entry in the Basecamp with ID `basecampId` and under the sche
 | basecampId    | String| Basecamp ID.
 | scheduleId    | String| Schedule ID.
 | summary       | String| What this schedule entry is about
-| startsAt      | String| Timestamp for when this schedule entry begins. Example: `2015-06-04T00:00:00Z`
-| endsAt        | String| Timestamp for when this schedule entry ends. Example: `2015-06-04T02:00:00Z`
+| startsAt      | DatePicker| Timestamp for when this schedule entry begins. Example: `2015-06-04T00:00:00Z`
+| endsAt        | DatePicker| Timestamp for when this schedule entry ends. Example: `2015-06-04T02:00:00Z`
 | description   | String| Containing more information about the schedule entry
 | participantIds| String| An array of people IDs that will participate in this entry
 | allDay        | String| When set to `true`, the schedule entry will not have a specific start or end time, and instead will be held for the entire day or days denoted in `starts_at` and `ends_at`
@@ -693,7 +702,7 @@ Returns a list of active Templates visible to the current user sorted by most re
 |--------------|-------|----------
 | accountId    | String| Basecamp Account ID.
 | accessToken  | String| OAuth2 Access Token from `getAccessToken` block.
-| status       | String| When set to `archived` or `trashed`, will return archived or trashed Templates visible to the current user.
+| status       | Select| When set to `archived` or `trashed`, will return archived or trashed Templates visible to the current user.
 
 ## Basecamp3.getSingleTemplate
 Returns the Template with the given ID, granted they have access to it.
@@ -818,7 +827,7 @@ Returns a list of active to-dos in the Basecamp with an ID of `basecampId` and t
 | accessToken  | String| OAuth2 Access Token from `getAccessToken` block.
 | basecampId   | String| Basecamp ID.
 | listId       | String| List ID.
-| status       | String| When set to `archived` or `trashed`, will return archived or trashed to-dos that are in this list.
+| status       | Select| When set to `archived` or `trashed`, will return archived or trashed to-dos that are in this list.
 | completed    | String| When set to true, will only return to-dos that are completed. Can be combined with the status parameter.
 
 ## Basecamp3.getSingleToDo
@@ -844,7 +853,7 @@ Creates a to-do in the Basecamp with ID `basecampId` and under the to-do list wi
 | description  | String| Containing information about the to-do.
 | assigneeIds  | String| An array of people that will be assigned to this to-do.
 | notify       | String| When set to `true`, will notify the assignees about being assigned.
-| dueOn        | String| A `YYYY-mm-dd` date when the to-do should be completed.
+| dueOn        | DatePicker| A `YYYY-mm-dd` date when the to-do should be completed.
 | startsOn     | String| Allows the to-do to run from this date to the `dueOn` date.
 
 ## Basecamp3.updateToDo
@@ -1019,7 +1028,7 @@ Creates a webhook in the Basecamp with ID `basecampId`.
 | accessToken  | String| OAuth2 Access Token from `getAccessToken` block.
 | basecampId   | String| 
 | payloadUrl   | String| Payload url for the `HTTPS` url that Basecamp should call.
-| types        | JSON  | An array of types, options given in the introduction.
+| types        | List  | An array of types, options given in the introduction.
 
 #### `types` field example: 
 ```json

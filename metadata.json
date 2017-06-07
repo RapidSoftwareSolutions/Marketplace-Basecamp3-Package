@@ -101,7 +101,8 @@
         },
         {
           "name": "status",
-          "type": "String",
+          "type": "Select",
+          "options": ["archived","trashed"],
           "info": "When set to `archived` or `trashed`, will return archived or trashed Basecamps visible to the current user.",
           "required": false
         }
@@ -1171,7 +1172,8 @@
         },
         {
           "name": "type",
-          "type": "String",
+          "type": "Select",
+          "options": ["Comment","Document","Message","Question::Answer","Schedule::Entry","Todo","Todolist","Upload"],
           "info": "Must be `Comment`, `Document`, `Message`, `Question::Answer`, `Schedule::Entry`, `Todo`, `Todolist`, or `Upload`.",
           "required": true
         },
@@ -1183,19 +1185,22 @@
         },
         {
           "name": "status",
-          "type": "String",
+          "type": "Select",
+          "options": ["active","archived","trashed"],
           "info": "Options: `active`, `archived`, or `trashed`. Default: `active`",
           "required": false
         },
         {
           "name": "sort",
-          "type": "String",
+          "type": "Select",
+          "options": ["created_at","updated_at"],
           "info": "Options: `created_at` or `updated_at`. Default: `created_at`.",
           "required": false
         },
         {
           "name": "direction",
-          "type": "String",
+          "type": "Select",
+          "options": ["desc","asc"],
           "info": "Options: `desc` or `asc`. Default: `desc`.",
           "required": false
         }
@@ -1951,9 +1956,35 @@
         },
         {
           "name": "people",
-          "type": "JSON",
+          "type": "Array",
           "info": "An array of new people with name and email_address properties, and optional title and company_name properties. See README for more info.",
-          "required": true
+          "required": true,
+          "structure": [
+            {
+              "name": "name",
+              "type": "String",
+              "info": "Name",
+              "required": true
+            },
+            {
+              "name": "email_address",
+              "type": "String",
+              "info": "Email",
+              "required": true
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "info": "Title",
+              "required": true
+            },
+            {
+              "name": "company_name",
+              "type": "String",
+              "info": "Name of company",
+              "required": true
+            }
+          ]
         }
       ],
       "callbacks": [
@@ -1991,9 +2022,15 @@
         },
         {
           "name": "people",
-          "type": "JSON",
+          "type": "List",
           "info": "An array of people IDs. See README for more info.",
-          "required": true
+          "required": true,
+          "structure":{
+              "name": "id",
+              "type": "String",
+              "info": "User Id",
+              "required": true
+          }
         }
       ],
       "callbacks": [
@@ -2031,9 +2068,15 @@
         },
         {
           "name": "people",
-          "type": "JSON",
+          "type": "List",
           "info": "An array of people IDs. See README for more info.",
-          "required": true
+          "required": true,
+          "structure":{
+              "name": "id",
+              "type": "String",
+              "info": "User Id",
+              "required": true
+          }
         }
       ],
       "callbacks": [
@@ -2367,7 +2410,8 @@
         },
         {
           "name": "status",
-          "type": "String",
+          "type": "Select",
+          "options": ["archived","trashed"],
           "info": "When set to `archived` or `trashed`, will return archived or trashed schedule entries that are in this schedule.",
           "required": false
         }
@@ -2459,13 +2503,13 @@
         },
         {
           "name": "startsAt",
-          "type": "String",
+          "type": "DatePicker",
           "info": "Timestamp for when this schedule entry begins. Example: `2015-06-04T00:00:00Z`",
           "required": true
         },
         {
           "name": "endsAt",
-          "type": "String",
+          "type": "DatePicker",
           "info": "Timestamp for when this schedule entry ends. Example: `2015-06-04T00:00:00Z`",
           "required": true
         },
@@ -2541,13 +2585,13 @@
         },
         {
           "name": "startsAt",
-          "type": "Number",
+          "type": "DatePicker",
           "info": "Timestamp for when this schedule entry begins",
           "required": false
         },
         {
           "name": "endsAt",
-          "type": "Number",
+          "type": "DatePicker",
           "info": "Timestamp for when this schedule entry ends",
           "required": false
         },
@@ -2645,7 +2689,8 @@
         },
         {
           "name": "status",
-          "type": "String",
+          "type": "Select",
+          "options": ["archived","trashed"],
           "info": "When set to `archived` or `trashed`, will return archived or trashed Templates visible to the current user.",
           "required": false
         }
@@ -3155,7 +3200,8 @@
         },
         {
           "name": "status",
-          "type": "String",
+          "type": "Select",
+          "options": ["archived","trashed"],
           "info": "When set to `archived` or `trashed`, will return archived or trashed to-dos that are in this list.",
           "required": false
         },
@@ -3271,7 +3317,7 @@
         },
         {
           "name": "dueOn",
-          "type": "String",
+          "type": "DatePicker",
           "info": "A `YYYY-mm-dd` date when the to-do should be completed.",
           "required": false
         },
@@ -4001,9 +4047,16 @@
         },
         {
           "name": "types",
-          "type": "JSON",
+          "type": "List",
           "info": "An array of types, options given in the introduction.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "type",
+            "type": "String",
+            "info": "Type",
+            "required": true
+          }
+
         }
       ],
       "callbacks": [
